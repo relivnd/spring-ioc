@@ -2,7 +2,6 @@ package ch.fhnw.eaf.spring.ioc;
 
 import ch.fhnw.eaf.spring.ioc.renderer.MessageRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +14,7 @@ public class SpringIocApplication implements CommandLineRunner {
     }
 
     @Autowired
-    @Qualifier()
     MessageRenderer renderer ;
-
 
     @Override
     public void run(String... args) {
