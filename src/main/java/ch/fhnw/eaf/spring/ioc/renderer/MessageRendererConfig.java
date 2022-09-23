@@ -1,3 +1,4 @@
+/*
 package ch.fhnw.eaf.spring.ioc.renderer;
 
 import org.springframework.context.annotation.Bean;
@@ -17,3 +18,4 @@ public class MessageRendererConfig {
     }
 
 }
+*/

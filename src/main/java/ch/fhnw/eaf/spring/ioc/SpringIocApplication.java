@@ -1,13 +1,14 @@
 package ch.fhnw.eaf.spring.ioc;
 
 import ch.fhnw.eaf.spring.ioc.renderer.MessageRenderer;
-import ch.fhnw.eaf.spring.ioc.renderer.MessageRendererConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
+@ImportResource("/app-config.xml")
 public class SpringIocApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -15,15 +16,10 @@ public class SpringIocApplication implements CommandLineRunner {
     }
 
     @Autowired
-    MessageRendererConfig config;
-
+    MessageRenderer renderer;
 
     @Override
     public void run(String... args) {
-        MessageRenderer renderer = config.getStandardOutMessageRenderer();
-        renderer.render();
-
-        renderer = config.getStandardErrorMessageRenderer();
         renderer.render();
     }
 }
