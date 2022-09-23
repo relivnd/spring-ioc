@@ -1,6 +1,7 @@
 package ch.fhnw.eaf.spring.ioc;
 
 import ch.fhnw.eaf.spring.ioc.renderer.MessageRenderer;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,10 +17,11 @@ public class SpringIocApplication implements CommandLineRunner {
     }
 
     @Autowired
-    MessageRenderer renderer;
+    BeanFactory context;
 
     @Override
     public void run(String... args) {
+        MessageRenderer renderer = (MessageRenderer) context.getBean("messageRenderer");
         renderer.render();
     }
 }
